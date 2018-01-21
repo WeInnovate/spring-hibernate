@@ -3,6 +3,8 @@
 
 # Log file
 *.log
+.classpath
+.project
 
 # BlueJ files
 *.ctxt
