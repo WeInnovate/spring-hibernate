@@ -9,11 +9,15 @@ public class HondaCity implements Car {
 	private double mileAge;
 
 	private int maxSpeed;
+	
+	private Engine engine;
 
 	@Override
 	public void driveTheCar() {
+		engine.start();
 		System.out.println("Driving " + color + " " + this.getClass().getSimpleName() + " with speed of " + maxSpeed
 				+ " which has model number " + modelNumber + " and mileage " + mileAge);
+	engine.stop();
 	}
 
 	public long getModelNumber() {
@@ -46,6 +50,11 @@ public class HondaCity implements Car {
 
 	public void setMaxSpeed(int maxSpeed) {
 		this.maxSpeed = maxSpeed;
+	}
+
+	public HondaCity(Engine engine) {
+		super();
+		this.engine = engine;
 	}
 
 }

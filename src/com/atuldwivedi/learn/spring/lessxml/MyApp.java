@@ -11,7 +11,7 @@ public class MyApp {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"com/atuldwivedi/learn/spring/lessxml/spring-config.xml");
-		Car car = (Car) context.getBean("hondaAm");
+		Car car = (Car) context.getBean("hj");
 		car.driveTheCar();
 
 	}

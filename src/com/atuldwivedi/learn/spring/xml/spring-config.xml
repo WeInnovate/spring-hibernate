@@ -13,32 +13,39 @@
                            http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-<context:property-placeholder location="classpath:car.properties"/>
+	<context:property-placeholder location="classpath:car.properties" />
 
 	<bean id="car" class="com.atuldwivedi.learn.spring.xml.HondaCity">
 		<property name="modelNumber" value="10001" />
 		<property name="color" value="Black" />
 		<property name="mileAge" value="10.9" />
 		<property name="maxSpeed" value="300" />
+
+		<constructor-arg>
+			<ref bean="engine" />
+		</constructor-arg>
 	</bean>
 
+	<bean id="engine" class="com.atuldwivedi.learn.spring.xml.AshokaLeyLandEngine" />
+	<bean id="mEngine" class="com.atuldwivedi.learn.spring.xml.MercedesEngine" />
 
 
 
 
 
 	<bean id="car2" class="com.atuldwivedi.learn.spring.xml.HondaAmaze" />
-	
-	
+
+
 	<bean id="car3" class="com.atuldwivedi.learn.spring.xml.HondaJazz">
-	
-	<property name="modelNumber" value="${hondaJazz.modelNumber}" />
+
+		<property name="modelNumber" value="${hondaJazz.modelNumber}" />
 		<property name="color" value="${hondaJazz.color}" />
 		<property name="mileAge" value="${hondaJazz.mileAge}" />
 		<property name="maxSpeed" value="${hondaJazz.maxSpeed}" />
-	
-	
-	
+		<property name="engine" ref="mEngine" />
+
+
+
 	</bean>
 
 

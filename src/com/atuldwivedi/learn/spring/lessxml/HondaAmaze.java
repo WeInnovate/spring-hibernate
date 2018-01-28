@@ -1,10 +1,16 @@
 package com.atuldwivedi.learn.spring.lessxml;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("hondaAm")
 public class HondaAmaze implements Car {
+	
+	@Autowired
+	@Qualifier("mercedesEngine")
+	private Engine engine;
 
 	@Value("${hondaAmze.modelNumber}")
 	private long modelNumber;
@@ -32,7 +38,9 @@ public class HondaAmaze implements Car {
 		.append(mileAge)
 		.append(" KMpL");
 
+		engine.start();
 		System.out.println(sb.toString());
+		engine.stop();
 
 	}
 

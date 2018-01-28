@@ -10,22 +10,18 @@ public class HondaJazz implements Car {
 
 	private int maxSpeed;
 
+	private Engine engine;
+
 	@Override
 	public void driveTheCar() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Driving ")
-		.append(color)
-		.append(" ")
-		.append(this.getClass().getSimpleName())
-		.append(" at speed of ")
-		.append(maxSpeed)
-		.append(" KMpH which has model number ")
-		.append(modelNumber).append(" and mileage of ")
-		.append(mileAge)
-		.append(" KMpL");
+		sb.append("Driving ").append(color).append(" ").append(this.getClass().getSimpleName()).append(" at speed of ")
+				.append(maxSpeed).append(" KMpH which has model number ").append(modelNumber).append(" and mileage of ")
+				.append(mileAge).append(" KMpL");
 
+		engine.start();
 		System.out.println(sb.toString());
-
+		engine.stop();
 	}
 
 	public long getModelNumber() {
@@ -58,6 +54,14 @@ public class HondaJazz implements Car {
 
 	public void setMaxSpeed(int maxSpeed) {
 		this.maxSpeed = maxSpeed;
+	}
+
+	public Engine getEngine() {
+		return engine;
+	}
+
+	public void setEngine(Engine engine) {
+		this.engine = engine;
 	}
 
 }
