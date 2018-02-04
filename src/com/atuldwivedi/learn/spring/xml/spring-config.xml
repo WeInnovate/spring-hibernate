@@ -33,10 +33,10 @@
 
 
 
-	<bean id="car2" class="com.atuldwivedi.learn.spring.xml.HondaAmaze" />
+	<bean id="car2" class="com.atuldwivedi.learn.spring.xml.HondaAmaze" scope="singleton" />
 
 
-	<bean id="car3" class="com.atuldwivedi.learn.spring.xml.HondaJazz">
+	<bean id="car3" class="com.atuldwivedi.learn.spring.xml.HondaJazz"  scope="prototype">
 
 		<property name="modelNumber" value="${hondaJazz.modelNumber}" />
 		<property name="color" value="${hondaJazz.color}" />

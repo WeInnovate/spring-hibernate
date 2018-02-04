@@ -1,5 +1,8 @@
 package com.atuldwivedi.learn.spring.javaclass;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -68,4 +71,13 @@ public class HondaAmaze implements Car {
 		this.maxSpeed = maxSpeed;
 	}
 
+	@PostConstruct
+	public void afterConstruction() {
+		System.out.println("I know object is constructed.");
+	}
+	
+	@PreDestroy
+	public void beforeDesctruction() {
+		System.out.println("I know object is going to be destroyed.");
+	}
 }

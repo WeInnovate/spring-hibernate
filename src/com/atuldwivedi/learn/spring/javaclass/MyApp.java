@@ -9,9 +9,10 @@ public class MyApp {
 
 		// Car car = new HondaCity();
 
-		ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
 		Car car = (Car) context.getBean("hondaAm");
 		car.driveTheCar();
+		context.close();
 
 	}
 
