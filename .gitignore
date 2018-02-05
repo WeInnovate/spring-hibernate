@@ -5,6 +5,7 @@
 *.log
 .classpath
 .project
+.settings
 
 # BlueJ files
 *.ctxt
