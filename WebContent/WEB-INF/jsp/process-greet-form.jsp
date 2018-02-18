@@ -1,0 +1,1 @@
+Hello, <span>${myName}</span> 
