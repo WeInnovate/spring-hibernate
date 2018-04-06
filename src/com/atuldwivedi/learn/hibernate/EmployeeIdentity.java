@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "EMPLOYEE")
-public class Employee {
+public class EmployeeIdentity {
 
 	@Id
 	@Column(name = "EMP_NO")
@@ -35,7 +35,7 @@ public class Employee {
 	@Column(name = "SALARY")
 	private Double salary;
 
-	public Employee(String name, String email, Integer age, Double salary) {
+	public EmployeeIdentity(String name, String email, Integer age, Double salary) {
 		super();
 		this.name = name;
 		this.email = email;
