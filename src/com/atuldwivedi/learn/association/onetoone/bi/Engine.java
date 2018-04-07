@@ -42,4 +42,9 @@ public class Engine {
 		this.speed = speed;
 	}
 
+	@Override
+	public String toString() {
+		return "Engine [engineNbr=" + engineNbr + ", mileage=" + mileage + ", speed=" + speed + "]";
+	}
+
 }

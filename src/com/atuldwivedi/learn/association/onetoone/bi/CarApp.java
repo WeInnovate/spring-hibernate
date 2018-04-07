@@ -24,9 +24,11 @@ public class CarApp {
 			Car car = new Car(null, "Audi X", "Audi", engine);
 			engine.setCar(car);
 			
-			session.save(engine);
+//			session.save(engine);
 //			Car myCar = session.get(Car.class, BigInteger.valueOf(1l));
-//			System.out.println(myCar);
+			Engine myEngine = session.get(Engine.class, BigInteger.valueOf(3l));
+			System.out.println(myEngine);
+			System.out.println(myEngine.getCar());
 //			
 //			myCar.setCompany("Tata");
 //			myCar.getEngine().setMileage(18d);
