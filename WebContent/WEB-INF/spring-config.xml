@@ -25,7 +25,37 @@
 	</bean>
 
 
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="org.h2.Driver" />
+		<property name="jdbcUrl" value="jdbc:h2:~/sH" />
+		<property name="user" value="sa" />
+		<property name="password" value="" />
 
+		<property name="minPoolSize" value="1" />
+		<property name="maxPoolSize" value="1" />
+		<property name="maxIdleTime" value="5000" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="packagesToScan" value="com.atuldwivedi.learn.spring.domain" />
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="myTnxMgr"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="myTnxMgr" />
 
 
 

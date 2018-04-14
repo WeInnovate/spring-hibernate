@@ -2,6 +2,7 @@ package com.atuldwivedi.learn.spring.mvc.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.atuldwivedi.learn.spring.domain.Student;
+import com.atuldwivedi.learn.spring.mvc.dao.StudentDao;
 
 @Controller
 public class StudentController {
+	
+	@Autowired
+	private StudentDao studentDao;
 
 	@InitBinder
 	public void anyMethod(WebDataBinder webDataBinder) {
@@ -36,6 +41,7 @@ public class StudentController {
 			return "student-form";
 		} else {
 			System.out.println(std);
+			studentDao.saveStudent(std);
 			return "process-student-form";
 		}
 
