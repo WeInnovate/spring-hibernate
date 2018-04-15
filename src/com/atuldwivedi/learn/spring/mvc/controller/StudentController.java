@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.atuldwivedi.learn.spring.domain.Student;
 import com.atuldwivedi.learn.spring.mvc.dao.StudentDao;
+import com.atuldwivedi.learn.spring.mvc.service.StudentService;
 
 @Controller
 public class StudentController {
 	
 	@Autowired
-	private StudentDao studentDao;
+	private StudentService studentService;
 
 	@InitBinder
 	public void anyMethod(WebDataBinder webDataBinder) {
@@ -41,7 +42,7 @@ public class StudentController {
 			return "student-form";
 		} else {
 			System.out.println(std);
-			studentDao.saveStudent(std);
+			studentService.saveStudent(std);
 			return "process-student-form";
 		}
 
