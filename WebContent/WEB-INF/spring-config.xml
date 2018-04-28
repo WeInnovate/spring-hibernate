@@ -17,7 +17,7 @@
 	<context:property-placeholder location="classpath:car.properties" />
 	<context:component-scan base-package="com.atuldwivedi.learn.spring.mvc" />
 	<mvc:annotation-driven />
-
+<aop:aspectj-autoproxy />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
